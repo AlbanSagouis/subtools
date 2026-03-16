@@ -1,16 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/subtools.png" width="120" align="right" />
-
 # subtools
+
+<img src="man/figures/subtools.png" width="120" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/fkeck/subtools/actions/workflows/check-standard.yml/badge.svg)](https://github.com/fkeck/subtools/actions/workflows/check-standard.yml)
-\[![Code Coverage:
-82%](https://img.shields.io/badge/code_coverage-82%25-green)\]
+[![Code Coverage:
+82%](https://img.shields.io/badge/code_coverage-82%25-green)](https://img.shields.io/badge/code_coverage-82%25-green)
 
 ### Read, write and manipulate subtitles in R
 
@@ -283,16 +283,16 @@ Robinson. This is a great place to get started with text mining in R.
 A list of cool projects using `subtools`.
 
 Note that these project used the branch 0.x of `subtools`. The API is
-totally different in `subtools 1.0`.
+totally different from `subtools 1.0`.
 
 [*You beautiful, naïve, sophisticated newborn
 series*](https://www.masalmon.eu/2017/11/05/newborn-serie/) by
-[ma_salmon](https://twitter.com/ma_salmon)
+[ma_salmon](https://x.com/ma_salmon)
 
 [*A tidy text analysis of Rick and
 Morty*](http://tamaszilagyi.com/blog/2017/2017-10-07-tidyrick/) by
-[tudosgar](https://twitter.com/tudosgar)
+[tudosgar](https://x.com/tudosgar)
 
 [*Term Frequencies by
-Season*](https://twitter.com/tdawry/status/919055698427809792) by
-[tdawry](https://twitter.com/tdawry)
+Season*](https://x.com/tdawry/status/919055698427809792) by
+[tdawry](https://x.com/tdawry)
