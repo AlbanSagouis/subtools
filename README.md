@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-<img src="man/figures/subtools.png" width="120" align="right" />
-
 # subtools
+
+<img src="man/figures/subtools.png" width="120" align="right" />
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -283,7 +283,7 @@ Robinson. This is a great place to get started with text mining in R.
 A list of cool projects using `subtools`.
 
 Note that these project used the branch 0.x of `subtools`. The API is
-totally different in `subtools 1.0`.
+totally different from `subtools 1.0`.
 
 [*You beautiful, naïve, sophisticated newborn
 series*](https://masalmon.eu/2017/11/05/newborn-serie/) by

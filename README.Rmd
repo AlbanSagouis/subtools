@@ -30,9 +30,11 @@ if (coverage >= 90) {
 }
 ```
 
-<img src="man/figures/subtools.png" width="120" align="right" />
 
 # subtools
+
+<img src="man/figures/subtools.png" width="120" align="right" />
+
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/fkeck/subtools/actions/workflows/check-standard.yml/badge.svg)](https://github.com/fkeck/subtools/actions/workflows/check-standard.yml)
 ![Code Coverage: `r coverage`%](https://img.shields.io/badge/code_coverage-`r coverage`%25-`r colour`)
@@ -161,7 +163,7 @@ Once your data are ready, you can analyse them. I recommend you to have a look a
 ### Applications
 A list of cool projects using `subtools`.
 
-Note that these project used the branch 0.x of `subtools`. The API is totally different in `subtools 1.0`.
+Note that these project used the branch 0.x of `subtools`. The API is totally different from `subtools 1.0`.
 
 [*You beautiful, naïve, sophisticated newborn series*](https://masalmon.eu/2017/11/05/newborn-serie/)
 by [ma_salmon](https://x.com/ma_salmon)
