@@ -1,17 +1,45 @@
-# Extract file name from dir paths
+#' Extract the file name from a path
+#'
+#' Strips trailing slashes and returns the last path component.
+#'
+#' @param x a character vector of file or directory paths.
+#'
+#' @returns A character vector of file names, the same length as \code{x}.
+#'
+#' @noRd
 .extr_filename <- function(x) {
   x <- gsub("/+$", "", x)
   x <- regmatches(x, regexpr("([^/]+$)", x))
   return(x)
 }
 
-# Extract extension from file name
+#' Extract the extension from a file name
+#'
+#' Returns the part of the file name after the last dot (lower-case alphanumeric only).
+#'
+#' @param x a character vector of file names or paths.
+#'
+#' @returns A character vector of file extensions (without the leading dot),
+#' the same length as \code{x}.
+#'
+#' @noRd
 .extr_extension <- function(x) {
   x <- regmatches(x, regexpr("(?<=\\.)[0-9a-z]+$", x, perl = TRUE))
   return(x)
 }
 
-# Extract Season number
+#' Extract season number from file paths
+#'
+#' Parses the file name component of each path and attempts to detect the season
+#' number using four common naming conventions:
+#' \code{S01}, \code{SEASON.2}, \code{S03E05}, and \code{2X05}.
+#' Returns \code{NA} for paths where no convention matches.
+#'
+#' @param x a character vector of file or directory paths.
+#'
+#' @returns A numeric vector of season numbers, the same length as \code{x}.
+#'
+#' @noRd
 .extr_snum <- function(x) {
   x <- .extr_filename(x)
   x <- toupper(x)
@@ -49,7 +77,18 @@
   return(res)
 }
 
-# Extract Episode number
+#' Extract episode number from file paths
+#'
+#' Parses the file name component of each path and attempts to detect the episode
+#' number using four common naming conventions:
+#' \code{E01}, \code{EPISODE.2}, \code{S03E05}, and \code{2x05}.
+#' Returns \code{NA} for paths where no convention matches.
+#'
+#' @param x a character vector of file or directory paths.
+#'
+#' @returns A numeric vector of episode numbers, the same length as \code{x}.
+#'
+#' @noRd
 .extr_enum <- function(x) {
   x <- .extr_filename(x)
   x <- toupper(x)
@@ -88,7 +127,17 @@
 }
 
 
-# For WebVTT parsing: select cue blocks only (drop REGION, STYLE, NOTE)
+#' Test whether a string is a WebVTT cue timing line
+#'
+#' Used during WebVTT parsing to identify cue blocks and filter out
+#' \code{REGION}, \code{STYLE}, and \code{NOTE} blocks.
+#'
+#' @param x a single character string (or \code{NA}).
+#'
+#' @returns A single logical: \code{TRUE} if \code{x} matches the WebVTT cue timing
+#' pattern, \code{FALSE} otherwise (including when \code{x} is \code{NA}).
+#'
+#' @noRd
 .test_cuetiming <- function(x) {
   if (is.na(x)) {
     res <- FALSE
