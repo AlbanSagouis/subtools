@@ -48,11 +48,7 @@ Subtools is a R package to read, write and manipulate subtitles in R. This then 
 ### Install
 You can install the package directly from CRAN with `install.packages("subtools")` or get the latest, in development, version with:
 ```{r, eval = FALSE}
-remotes::install_github(
-  repo = "fkeck/subtools@dev",
-  build_manual = TRUE,
-  build_vignettes = TRUE
-)
+pak::pkg_install("fkeck/subtools@dev")
 ```
 
 ```{r}

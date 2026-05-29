@@ -30,11 +30,7 @@ You can install the package directly from CRAN with
 version with:
 
 ``` r
-remotes::install_github(
-  repo = "fkeck/subtools@dev",
-  build_manual = TRUE,
-  build_vignettes = TRUE
-)
+pak::pkg_install("fkeck/subtools@dev")
 ```
 
 ``` r
@@ -55,8 +51,8 @@ oss_sub <- read_subtitles("ex_OSS_117.srt")
 ``` r
 rushmore_sub
 #> # A tibble: 4 × 4
-#>   ID    Timecode_in Timecode_out Text_content
-#>   <chr> <time>      <time>       <chr>
+#>   ID    Timecode_in Timecode_out Text_content                                   
+#>   <chr> <time>      <time>       <chr>                                          
 #> 1 180   20'40.969"  20'48.269"   Rushmore deserves an aquarium. A first class a…
 #> 2 181   20'48.269"  20'50.870"   - I don't know. What do you think, Ernie - Aqu…
 #> 3 182   20'50.946"  20'57.370"   - What kind of fish? - Barracudas. Stingrays. …
@@ -64,10 +60,10 @@ rushmore_sub
 
 oss_sub
 #> # A tibble: 3 × 4
-#>   ID    Timecode_in Timecode_out Text_content
-#>   <chr> <time>      <time>       <chr>
+#>   ID    Timecode_in Timecode_out Text_content                                   
+#>   <chr> <time>      <time>       <chr>                                          
 #> 1 264   20'22.967"  20'27.427"   Si vous voulez. Ça sera surtout l'occasion de …
-#> 2 265   20'30.347"  20'32.297"   Et non pas le gratin de pommes de terre.
+#> 2 265   20'30.347"  20'32.297"   Et non pas le gratin de pommes de terre.       
 #> 3 266   20'35.587"  20'37.697"   Parce que ça ressemble à carotte, cairote.
 ```
 
@@ -184,14 +180,14 @@ multi_sub
 #> A multisubtitles object with 2 elements
 #> subtitles object [[1]]
 #> # A tibble: 4 × 4
-#>   ID    Timecode_in Timecode_out Text_content
-#>   <chr> <time>      <time>       <chr>
+#>   ID    Timecode_in Timecode_out Text_content                                   
+#>   <chr> <time>      <time>       <chr>                                          
 #> 1 180   20'40.969"  20'48.269"   Rushmore deserves an aquarium. A first class a…
 #> 2 181   20'48.269"  20'50.870"   - I don't know. What do you think, Ernie - Aqu…
 #> 3 182   20'50.946"  20'57.370"   - What kind of fish? - Barracudas. Stingrays. …
 #> 4 183   20'58.051"  21'01.770"   - Piranhas? Really? - Yes, I'm talking to a gu…
-#>
-#>
+#> 
+#> 
 #> subtitles object [[2]]
 #> # A tibble: 4 × 7
 #>   ID    Timecode_in Timecode_out Text_content               Name  Season Episode
@@ -232,8 +228,8 @@ timecode remapping according to the tokenisation process.
 ``` r
 rushmore_sub
 #> # A tibble: 4 × 4
-#>   ID    Timecode_in Timecode_out Text_content
-#>   <chr> <time>      <time>       <chr>
+#>   ID    Timecode_in Timecode_out Text_content                                   
+#>   <chr> <time>      <time>       <chr>                                          
 #> 1 180   20'40.969"  20'48.269"   Rushmore deserves an aquarium. A first class a…
 #> 2 181   20'48.269"  20'50.870"   - I don't know. What do you think, Ernie - Aqu…
 #> 3 182   20'50.946"  20'57.370"   - What kind of fish? - Barracudas. Stingrays. …
@@ -242,18 +238,56 @@ rushmore_sub
 unnest_tokens(rushmore_sub)
 #> # A tibble: 49 × 4
 #>    ID    Timecode_in Timecode_out Text_content
-#>    <chr> <time>      <time>       <chr>
-#>  1 180   20'40.9700" 20'41.4858"  rushmore
-#>  2 180   20'41.4868" 20'42.0026"  deserves
-#>  3 180   20'42.0036" 20'42.1318"  an
-#>  4 180   20'42.1328" 20'42.6486"  aquarium
-#>  5 180   20'42.6496" 20'42.7132"  a
-#>  6 180   20'42.7142" 20'43.0363"  first
-#>  7 180   20'43.0373" 20'43.3593"  class
-#>  8 180   20'43.3603" 20'43.8761"  aquarium
-#>  9 180   20'43.8771" 20'44.1991"  where
-#> 10 180   20'44.2001" 20'44.8451"  scientists
-#> # ℹ 39 more rows
+#>    <chr> <time>      <time>       <chr>       
+#>  1 180   20'40.9700" 20'41.4858"  rushmore    
+#>  2 180   20'41.4868" 20'42.0026"  deserves    
+#>  3 180   20'42.0036" 20'42.1318"  an          
+#>  4 180   20'42.1328" 20'42.6486"  aquarium    
+#>  5 180   20'42.6496" 20'42.7132"  a           
+#>  6 180   20'42.7142" 20'43.0363"  first       
+#>  7 180   20'43.0373" 20'43.3593"  class       
+#>  8 180   20'43.3603" 20'43.8761"  aquarium    
+#>  9 180   20'43.8771" 20'44.1991"  where       
+#> 10 180   20'44.2001" 20'44.8451"  scientists  
+#> 11 180   20'44.8461" 20'45.0389"  can         
+#> 12 180   20'45.0399" 20'45.4911"  lecture     
+#> 13 180   20'45.4921" 20'45.6849"  and         
+#> 14 180   20'45.6859" 20'46.2017"  students    
+#> 15 180   20'46.2027" 20'46.3955"  can         
+#> 16 180   20'46.3965" 20'46.8478"  observe     
+#> 17 180   20'46.8488" 20'47.2354"  marine      
+#> 18 180   20'47.2364" 20'47.4938"  life        
+#> 19 180   20'47.4948" 20'47.6230"  in          
+#> 20 180   20'47.6240" 20'47.8168"  its         
+#> 21 180   20'47.8178" 20'48.2690"  natural     
+#> 22 181   20'48.2700" 20'48.3393"  i           
+#> 23 181   20'48.3403" 20'48.6908"  don't       
+#> 24 181   20'48.6918" 20'48.9720"  know        
+#> 25 181   20'48.9730" 20'49.2532"  what        
+#> 26 181   20'49.2542" 20'49.3938"  do          
+#> 27 181   20'49.3948" 20'49.6046"  you         
+#> 28 181   20'49.6056" 20'49.9561"  think       
+#> 29 181   20'49.9571" 20'50.3076"  ernie       
+#> 30 181   20'50.3086" 20'50.8700"  aquarium    
+#> 31 182   20'50.9470" 20'51.4402"  what        
+#> 32 182   20'51.4412" 20'51.9343"  kind        
+#> 33 182   20'51.9353" 20'52.1814"  of          
+#> 34 182   20'52.1824" 20'52.6755"  fish        
+#> 35 182   20'52.6765" 20'53.9109"  barracudas  
+#> 36 182   20'53.9119" 20'55.0228"  stingrays   
+#> 37 182   20'55.0238" 20'56.3817"  hammerheads 
+#> 38 182   20'56.3827" 20'57.3700"  piranhas    
+#> 39 183   20'58.0520" 20'58.6840"  piranhas    
+#> 40 183   20'58.6850" 20'59.1588"  really      
+#> 41 183   20'59.1598" 20'59.3962"  yes         
+#> 42 183   20'59.3972" 20'59.6336"  i'm         
+#> 43 183   20'59.6346" 21'00.1874"  talking     
+#> 44 183   21'00.1884" 21'00.3457"  to          
+#> 45 183   21'00.3467" 21'00.4248"  a           
+#> 46 183   21'00.4258" 21'00.6622"  guy         
+#> 47 183   21'00.6632" 21'00.8205"  in          
+#> 48 183   21'00.8215" 21'01.2161"  south       
+#> 49 183   21'01.2171" 21'01.7700"  america
 
 unnest_tokens(bb_sub_clean, token = "sentences")
 #> # A tibble: 8 × 7
